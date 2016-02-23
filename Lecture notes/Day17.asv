@@ -1,0 +1,36 @@
+%day 17 notes file I/O
+
+%fopen - opens the file and assigns an ID
+%fclose - closes it
+%fgets and fgetl - fgets also reads in the newLine character
+
+fid = fopen('gtsong.txt', 'r') %r means read only
+fid2 = fopen('newgtsong.txt', 'w') %open for writing
+line = fgetl(fid)
+count = 0
+while ischar(line)
+    if line(1) == 'I'
+      count = count + 1;
+      fprintf(fid2,'%s\n', line)
+    end
+    line = fgetl(fid)
+end
+result = count
+fclose(fid)
+fclose(fid2)
+
+%challenge - write all the lines to the output file but any line that
+%starts with 'I'm' should start with 'You''re'
+
+fid = fopen('gtsong.txt', 'r') %r means read only
+fid2 = fopen('newgtsong.txt', 'w') %open for writing
+line = fgetl(fid)
+while ischar(line)
+    if line(1) == 'I'
+      fprintf(fid2,'%s\n', line)
+    end
+    line = fgetl(fid)
+end
+result = count
+fclose(fid)
+fclose(fid2)
